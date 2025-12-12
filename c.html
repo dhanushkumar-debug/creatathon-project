@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Web Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-align: center; }
+        .container { background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; backdrop-filter: blur(10px); }
+        input, button { padding: 12px 20px; margin: 10px; border: none; border-radius: 25px; font-size: 16px; }
+        button { background: #ff6b6b; color: white; cursor: pointer; transition: all 0.3s; }
+        button:hover { background: #ff5252; transform: scale(1.05); }
+        #display { font-size: 2em; margin: 20px 0; padding: 20px; background: rgba(0,0,0,0.2); border-radius: 10px; }
+        #counter { font-size: 3em; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Dynamic Interactive Page</h1>
+        
+        <div id="counter">0</div>
+        <button onclick="changeCounter(-1)">➖</button>
+        <button onclick="changeCounter(1)">➕</button>
+        <button onclick="randomColor()">🎨 Random Color</button>
+        
+        <input type="text" id="userInput" placeholder="Type your name
