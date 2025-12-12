@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Declaration vs Expression</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; }
+        .code { background: #f4f4f4; padding: 15px; border-radius: 8px; margin: 10px 0; font-family: monospace; }
+        .output { background: #e8f5e8; padding: 15px; border-radius: 8px; margin: 10px 0; }
+        button { padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Rectangle Calculator: Declaration vs Expression</h1>
+    
+    <div class="code">
+        <strong>1. Function Declaration (Hoisted):</strong><br>
+        <pre>function calculateArea(length, width) {
+    return length * width;
+}</pre>
+    </div>
+
+    <div class="code">
+        <strong>2. Function Expression:</strong><br>
+        <pre>const calculatePerimeter = function(length, width) {
+    return 2 * (length + width);
+};</pre>
+    </div>
+
+    <input type="number" id="length" placeholder="Length" value="10">
+    <input type="number" id="width" placeholder="Width" value="5">
+    <button onclick="runDemo()">Calculate</button>
+
+    <div id="output" class="output">
+        Click Calculate to see results!
+    </div>
+
+    <script>
+        // 1. FUNCTION DECLARATION (can be called before definition)
+        function calculateArea(length, width) {
+            return length * width;
+        }
+
+        // 2. FUNCTION EXPRESSION (must be defined before calling)
+        const calculatePerimeter = function(length, width) {
+            return 2 * (length + width);
+        };
+
+        function runDemo() {
+            const length = parseFloat(document.getElementById('length').value);
+            const width = parseFloat(document.getElementById('width').value);
+            
+            const area = calculateArea(length, width);
+            const perimeter = calculatePerimeter(length, width);
+            
+            document.getElementById('output').innerHTML = `
+                <strong>Results for ${length} × ${width}:</strong><br>
+                Area (Declaration): ${area}<br>
+                Perimeter (Expression): ${perimeter}
+            `;
+        }
+
+        // Hoisting Demo - This works!
+        console.log("Declaration works before definition:", calculateArea(3, 4));
+        // console.log("Expression fails before definition:", calculatePerimeter(3, 4)); // ERROR!
+    </script>
+</body>
+</html>
